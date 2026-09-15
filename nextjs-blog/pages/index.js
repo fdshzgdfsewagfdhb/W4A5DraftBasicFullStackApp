@@ -1,3 +1,4 @@
+// wall of imports
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
@@ -5,8 +6,9 @@ import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Date from '../components/date';
 
-
+// when this file is used the function Home is called 
 export default function Home({ allPostsData }) {
+// this is that is displayed on the home page of the website
   return (
     <Layout home>
       <Head>
@@ -32,7 +34,7 @@ export default function Home({ allPostsData }) {
     </Layout>
   );
 }
-
+// this gets the data that homes needs, i think
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {

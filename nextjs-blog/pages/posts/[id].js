@@ -1,10 +1,13 @@
+//wall of imports
 import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
- 
+
+// when this file is used the function Post is called
 export default function Post({ postData }) {
+// this is how the post page is displayed on the website
   return (
     <Layout>
       <Head>
@@ -21,6 +24,7 @@ export default function Post({ postData }) {
   );
 }
 
+//this is how the post pages know where they are?
 export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
@@ -29,9 +33,8 @@ export async function getStaticPaths() {
   };
 }
 
-
+// this is how that data gotten for the post pages, i think
 export async function getStaticProps({ params }) {
-  // Add the "await" keyword like this:
   const postData = await getPostData(params.id);
  
   return {
